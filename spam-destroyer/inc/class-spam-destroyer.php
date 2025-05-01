@@ -9,7 +9,7 @@
  */
 class Spam_Destroyer {
 
-	public $version = '2.1.2';                     // The plugin version number
+	public $version = '2.1.6';                     // The plugin version number
 	public $spam_key;                              // Key used for confirmation of bot-like behaviour
 	public $speed = 2;                             // Will be killed as spam if posted faster than this
 	public $encryption_method = 'AES-256-CBC';     // The encryption method used
@@ -33,11 +33,17 @@ class Spam_Destroyer {
 		$this->set_keys();
 
 		// Possible comment issues
-		$this->comment_issues = array(
-			'hidden-field-not-set' => esc_html__( 'Hidden input field not set', 'spam-destroyer' ),
-			'wrong-timestamp'      => esc_html__( 'Time not set correctly', 'spam-destroyer' ),
-			'captcha-wrong'        => esc_html__( 'CAPTCHA not answered correctly', 'spam-destroyer' ),
-			'cookie-not-set'       => esc_html__( 'Cookie not set', 'spam-destroyer' ),
+		add_action(
+			'init',
+			function() {
+				$this->comment_issues = array(
+					'hidden-field-not-set' => esc_html__( 'Hidden input field not set', 'spam-destroyer' ),
+					'wrong-timestamp'      => esc_html__( 'Time not set correctly', 'spam-destroyer' ),
+					'captcha-wrong'        => esc_html__( 'CAPTCHA not answered correctly', 'spam-destroyer' ),
+					'cookie-not-set'       => esc_html__( 'Cookie not set', 'spam-destroyer' ),
+				);
+			},
+			2
 		);
 
 		// Add filters
@@ -59,7 +65,7 @@ class Spam_Destroyer {
 		add_action( 'bbp_theme_before_reply_form_content',  array( $this, 'extra_input_field' ) ); // bbPress signup page
 		add_action( 'register_form',                        array( $this, 'extra_input_field' ) ); // bbPress user registration page
 		add_action( 'admin_notices',                        array( $this, 'requirements_check' ) ); // Check plugin requirements
-		add_action( 'plugins_loaded', array( $this, 'textdomain' ) );
+		add_action( 'init', array( $this, 'textdomain' ), 2 );
 
 	}
 

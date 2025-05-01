@@ -4,7 +4,7 @@ Donate link: https://geek.hellyer.kiwi/products/spam-destroyer/
 Tags: spam, comments, anti-spam, antispam, buddypress, bbpress, kill, destroy, eliminate, registration, register, registrate, captcha
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 Text Domain: spam-destroyer
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,6 +36,9 @@ The original developer of the plugin was <a href="https://geek.hellyer.kiwi/">Ry
 
 
 == Changelog ==
+
+= 2.1.6  (2025-05-01) =
+* Removing notice triggered by translation functionality load point
 
 = 2.1.5  (2025-05-01) =
 * Including translation functionality
