@@ -4,10 +4,10 @@ Plugin Name: Spam Destroyer
 Plugin URI: https://geek.hellyer.kiwi/products/spam-destroyer/
 Description: Kills spam dead in it's tracks
 Author: Ryan Hellyer
-Version: 2.1.4
+Version: 2.1.5
 Author URI: https://geek.hellyer.kiwi/
 
-Copyright (c) 2012 - 2024 Ryan Hellyer
+Copyright (c) 2012 - 2025 Ryan Hellyer
 
 
 Based on the following open source projects:

@@ -59,6 +59,7 @@ class Spam_Destroyer {
 		add_action( 'bbp_theme_before_reply_form_content',  array( $this, 'extra_input_field' ) ); // bbPress signup page
 		add_action( 'register_form',                        array( $this, 'extra_input_field' ) ); // bbPress user registration page
 		add_action( 'admin_notices',                        array( $this, 'requirements_check' ) ); // Check plugin requirements
+		add_action( 'plugins_loaded', array( $this, 'textdomain' ) );
 
 	}
 
@@ -512,5 +513,11 @@ class Spam_Destroyer {
 
 	}
 
+	/**
+	 * Loading the plugins text domain for translations.
+	 */
+	public function textdomain() {
+		load_plugin_textdomain( 'spam-destroyer', false, plugin_basename( dirname( __DIR__ ) ) . '/languages' );
+	}
 }
 $spam_destroyer = new Spam_Destroyer();
